@@ -1,0 +1,202 @@
+{
+    "copyright": {
+        "pt-br": "Todos os direitos reservados à UDB desde 2020.",
+        "en-us": "All rights reserved to UDB since 2020."
+    },
+    "0": {
+        "hidden-category": {
+            "pt-br": "Você não tem acesso à categoria deste comando `{category}`.",
+            "en-us": "You don't have access to this command's category `{category}`."
+        },
+        "embed-params": {
+            "pt-br": "\n\n`<> - necessário [] - opcional`",
+            "en-us": "\n\n`<> - required [] - optional`"
+        },
+        "embed-footer": {
+            "pt-br": "Todos os direitos reservados à UDB desde 2020.",
+            "en-us": "All rights reserved to UDB since 2020."
+        }
+    },
+    "1": {
+        "default-reason": {
+            "pt-br": "A razão do banimento não foi informada.",
+            "en-us": "The reason for banning was not informed."
+        },
+        "is-yourself": {
+            "pt-br": "Você não pode banir você mesmo!",
+            "en-us": "You can't ban yourself!"
+        },
+        "is-myself": {
+            "pt-br": "Eu não posso banir a mim mesmo...",
+            "en-us": "I can't ban myself..."
+        },
+        "higher-than-me": {
+            "pt-br": "Não posso banir esse membro, por que ele é superior à mim!",
+            "en-us": "I can't ban this member, because they are superior to me!"
+        },
+        "higher-than-you": {
+            "pt-br": "Você não pode banir esse membro, pois ele é superior à você!",
+            "en-us": "You can't ban this member, because they are superior than you!"
+        },
+        "unbannable": {
+            "pt-br": "Eu não posso banir esse membro!",
+            "en-us": "I can't ban this member!"
+        },
+        "you-got-banned": {
+            "pt-br": "Você foi banido do servidor **{guildName}** pelo motivo: `{reason}`!",
+            "en-us": "You got banned from the server **{guildName}** for the reason: `{reason}`"
+        },
+        "success-ban": {
+            "pt-br": "O usuário **{userTag}** foi banido com scesso! Motivo: `{reason}`\n(Informado: {informed})",
+            "en-us": "The user **{userTag}** has ben success banned! Reason: `{reason}`\n(Informed: {informed})"
+        },
+        "unsuccess-ban": {
+            "pt-br": "Algo deu errado ao banir o usuário **{userTag}**!",
+            "en-us": "Something went wrong when banning the user **{userTag}**!"
+        }
+    },
+    "2": {
+        "not-found-any-place": {
+            "pt-br": "Não foi encontrado nenhum ban pelo id: **{id}**!",
+            "en-us": "Not found any ban by the id: **{id}**!"
+        },
+        "question": {
+            "pt-br": "Eu encontrei um banimento no meu banco de dados, mas não encontrei neste servidor. Você deseja remover? `Digite 'S' se você quiser`.",
+            "en-us": "I found a ban on the database, but not found on this server. Do you want to remove? `Tap 'Y' if you want`."
+        },
+        "successfully-removed": {
+            "pt-br": "O ban de **{id}** foi removido com sucesso do banco de dados!",
+            "en-us": "The ban for **{id}** was successfully removed from the database."
+        },
+        "successfully-unbanned": {
+            "pt-br": "O id **{id}** foi desbanido com sucesso!",
+            "en-us": "The id **{id}** was successfully unbanned!"
+        }
+    },
+    "3": {
+        "banned-since": {
+            "pt-br": "**Banido há**: ({year} anos )?({month} meses )?({day} dias )?({minute} minutos )?({second} segundos )?",
+            "en-us": "**Banned for**: ({year} years )?({month} months )?({day} days )?({minute} minutes )?({second} seconds )?"
+        },
+        "embed-info-title": {
+            "pt-br": "Informações do banimento de: {user}",
+            "en-us": "Banishment information for: {user}"
+        },
+        "embed-info-description": {
+            "pt-br": ":white_small_square:**Motivo do banimento**: {reason}\n:white_small_square:**Banido por**: {author}\n\n:white_small_square:{banned-since}",
+            "en-us": ""
+        },
+        "not-found": {
+            "pt-br": "Não há nenhum banimento registrado com o id **{id}**.",
+            "en-us": "There are no banishment registered with the id **{id}**."
+        }
+    },
+    "4": {
+        "unbanned-all": {
+            "pt-br": "**{size}** Usuários desbanidos com sucesso.",
+            "en-us": "**{size}** Unbanned users."
+        },
+        "null-bans": {
+            "pt-br": "Não há banimentos registrados.",
+            "en-us": "There are no bans registered."
+        }
+    },
+    "11": {
+        "succesffully-reported": {
+            "pt-br": "O bug foi reportado com sucesso, agradecemos pelo seu apoio! `(bugs reportados: {bugsReportedSize})`",
+            "en-us": "The bug has been sucessfully reported, we appreciate your support! `(bugs reporteds: {bugsReportedSize})`"
+        }
+    },
+    "12": {
+        "null-reports": {
+            "pt-br": "Você ainda não encontrou nenhum bug 👀",
+            "en-us": "You didn't find any bug yet 👀"
+        },
+        "report-details": {
+            "pt-br": "```\n{0} Reports: {size}``` ```\n{1} Em aberto: {open}``` ```\n{2} Resolvido: {resolved}``` ```\n{3} Desqualificado: {disqualified}```",
+            "en-us": "```\n{0} Reports: {size}``` ```\n{1} Open: {open}``` ```\n{2} Resolved: {resolved}``` ```\n{3} Disqualified: {disqualified}```"
+        },
+        "detailed-report": {
+            "pt-br": "```\n{state} {command} - {description}``` `({id})`",
+            "en-us": "```\n{state} {command} - {description}``` `({id})`"
+        },
+        "opened-report": {
+            "pt-br": " ```\n{command} - {description} | {openedSince}``` `({id})`",
+            "en-us": " ```\n{command} - {description} | {openedSince}``` `({id})`"
+        },
+        "opened-report-title": {
+            "pt-br": "Você está visualizando {seeingSize} de {fullSize} reports abertos",
+            "en-us": "You are seeing {seeingSize} de {fullSize} opened reports"
+        },
+        "opened-report-null": {
+            "pt-br": "```\n🎉 Você não tem nenhum report em aberto.```",
+            "en-us": "```\n🎉 You do not have any opened report.```"
+        },
+        "opened-since": {
+            "pt-br": "Aberto há: ({year} anos )?({month} meses )?({day} dias )?({minute} minutos )?({second} segundos )?",
+            "en-us": "Opened for: ({year} year )?({month} months )?({day} days )?({minute} minutes )?({second} seconds )?"
+        },
+        "resolved-report": {
+            "pt-br": " ```\n{command} - {description} | {resolvedSince}\n- {resolvedReason}``` `({id})`",
+            "en-us": " ```\n{command} - {description} | {resolvedSince}\n- {resolvedReason}``` `({id})`"
+        },
+        "resolved-report-title": {
+            "pt-br": "Você está visualizando {seeingSize} de {fullSize} reports resolvidos",
+            "en-us": "You are seeing {seeingSize} de {fullSize} resolved reports"
+        },
+        "resolved-report-null": {
+            "pt-br": "```\n😔 Nenhum report foi resolvido ainda.```",
+            "en-us": "```\n😔 Any report has been resolved yet.```"
+        },
+        "resolved-since": {
+            "pt-br": "Resolvido há: ({year} anos )?({month} meses )?({day} dias )?({minute} minutos )?({second} segundos )?",
+            "en-us": "Resolved for: ({year} year )?({month} months )?({day} days )?({minute} minutes )?({second} seconds )?"
+        },
+        "disqualified-report": {
+            "pt-br": " ```\n{command} - {description} | {disqualifiedSince}\n- {disqualifiedReason}``` `({id})`",
+            "en-us": " ```\n{command} - {description} | {disqualifiedSince}\n- {disqualifiedReason}``` `({id})`"
+        },
+        "disqualified-report-title": {
+            "pt-br": "Você está visualizando {seeingSize} de {fullSize} reports desqualificados",
+            "en-us": "You are seeing {seeingSize} de {fullSize} disqualified reports"
+        },
+        "disqualified-report-null": {
+            "pt-br": "```\n👍 Nenhum report desqualificado.```",
+            "en-us": "```\n👍 Any disqualified report.```"
+        },
+        "disqualified-since": {
+            "pt-br": "Desqualificado há: ({year} anos )?({month} meses )?({day} dias )?({minute} minutos )?({second} segundos )?",
+            "en-us": "Disuqualified for: ({year} year )?({month} months )?({day} days )?({minute} minutes )?({second} seconds )?"
+        }
+    },
+    "13": {
+        "no-open-reports": {
+            "pt-br": "Não há reports abertos para serem lidos.",
+            "en-us": "There are no open reports to be read."
+        },
+        "unavailable-action": {
+            "pt-br": "Você precisa escolher um tipo de ação válido! Ações disponíveis: {actions}",
+            "en-us": "You need to choose a valid action type! Available actions: {actions}"
+        },
+        "missing-author": {
+            "pt-br": "Você precisa informar o id do autor.",
+            "en-us": "You need to inform the author id."
+        },
+        "success-disqualify": {
+            "pt-br": "O report `{bugId}` de `{author}` foi desqualificado com sucesso!",
+            "en-us": "The report `{bugId}` from `{author}` has been successfully disqualified!"
+        },
+        "error-disqualify": {
+            "pt-br": "Algo de errado aconteceu ao desqualificar o report `{bugId}`!",
+            "en-us": "Something whent wrong while disqualifying the report `{bugId}`!"
+        },
+        "success-resolve": {
+            "pt-br": "O report `{bugId}` de `{author}` foi resolvido com sucesso!",
+            "en-us": "The report `{bugId}` from `{author}` has been successfully resolved!"
+        },
+        "error-resolve": {
+            "pt-br": "Algo de errado aconteceu ao resolver o report `{bugId}`!",
+            "en-us": "Something whent wrong while resolving the report `{bugId}`!"
+        }
+    }
+}

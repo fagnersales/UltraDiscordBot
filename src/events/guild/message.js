@@ -1,4 +1,4 @@
-const { Client, Message } = require("discord.js");
+const { Client, Message } = require("discord.js")
 
 module.exports = {
     listeners: 'message',
@@ -7,6 +7,7 @@ module.exports = {
      * @param {Message} message 
      */
     run: (client, message) => {
+
         if (
             message.author.bot
             || !message.guild
@@ -16,8 +17,15 @@ module.exports = {
         const prefix = process.env.PREFIX
         if (!message.content.toLowerCase().startsWith(prefix.toLowerCase())) return
 
+        if (prefix
+            && message.guild.id === "785994896812933130"
+            && !client.devs.includes(message.author.id)
+        ) return message.reply('Disponível apenas para meus desenvolvedores.')
+
         const args = message.content.slice(prefix.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase()
+
+        if (!cmd) return message.channel.send(`Meu prefixo :thumbsup:`)
 
         const command = client.commands.get(cmd) ? client.commands.get(cmd) : client.aliases.get(cmd)
 

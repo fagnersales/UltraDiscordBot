@@ -3,6 +3,8 @@ const { Collection } = require("discord.js")
 const { readdirSync } = require('fs')
 const { join } = require('path')
 
+const logger = require('../../src/structures/logger').logger('EVENT_HANDLER')
+
 function eventsHandler(client, eventsPath) {
     client.events = new Collection()
     loadFolder(client, eventsPath)
@@ -14,11 +16,11 @@ function loadFolder(client, folder) {
 
     for (const file of files) {
         if (file.isDirectory()) {
-            console.log(`> EventsHandler: Loading the folder: ${file.name}`)
+            logger(`Loading the folder: ${file.name}`)
             loadFolder(client, join(folder, file.name))
         }
         else {
-            console.log(`> EventsHandler: Loading the file: ${file.name}`)
+            logger(`Loading the file: ${file.name}`)
             loadFile(client, folder, file.name)
         }
     }
@@ -28,7 +30,7 @@ function loadFolder(client, folder) {
 function loadFile(client, folder, file) {
     const event = require(join(folder, file))
 
-    if (!event.run) return console.log(`Event could not be loaded because there's no method for running.`)
+    if (!event.run) return logger(`Event could not be loaded because there's no method for running.`)
     
     const fileName = file.split('.')[0]
     

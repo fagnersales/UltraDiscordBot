@@ -1,5 +1,7 @@
 const data = new Map()
 
+const logger = require('../../structures/logger').logger('SPAM_DETECTOR')
+
 const incrementMessage = (message, detectorPoints) => {
     const location = `${message.guild.id}-${message.channel.id}`
 
@@ -11,10 +13,10 @@ const incrementMessage = (message, detectorPoints) => {
         return message.client.emit('spamDetected', message.guild, message.channel, messages, detectorPoints)
     }
 
-    console.log(`{${location}} Reseted timeout and added one message (${messages.length + 1})`)
+    logger(`{${location}} Reseted timeout and added one message (${messages.length + 1})`)
     data.set(location, {
         timeout: setTimeout(() => {
-            console.log(`{${location}} no messages after 5 seconds!`)
+            logger(`{${location}} no messages after 5 seconds!`)
             data.delete(location)
         }, 5000),
         messages: [...messages, message]
@@ -24,11 +26,11 @@ const incrementMessage = (message, detectorPoints) => {
 const addMessage = message => {
     const location = `${message.guild.id}-${message.channel.id}`
 
-    console.log(`{${location}} Created 1 point`)
+    logger(`{${location}} Created 1 point`)
 
     data.set(location, {
         timeout: setTimeout(() => {
-            console.log(`{${location}} no messages after 5 seconds!`)
+            logger(`{${location}} no messages after 5 seconds!`)
             data.delete(location)
         }, 5000),
         messages: [message]

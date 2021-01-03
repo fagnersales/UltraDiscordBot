@@ -17,59 +17,62 @@ const { compareRolePosition } = require('../utils/compareRolePosition')
  * @typedef SetupParams
  * @property {Client} client
  * @property {Message} message
- * @property {Props} props
  */
 
-const config = {
-    id: 1,
-    name: 'ban',
-    aliases: ['banir'],
-    category: 'moderation',
-    description: 'Bane um usuário do servidor',
-    props: {
-        'memberToBan': {
-            type: 'member',
-            text: 'O membro que será banido',
-            required: true,
-            position: 0
-        },
-        'reason': {
-            type: 'text',
-            minLength: 4,
-            maxLength: 512,
-            joinSpace: true,
-            text: 'A razão do banimento',
-            required: false,
-            position: 1
-        }
-    },
-    permissions: ['BAN_MEMBERS']
-}
-
 class BanCommand extends BaseCommand {
-    constructor(data) {
-        super(data, config)
+    constructor() {
+        super({
+            id: 1,
+            name: 'ban',
+            aliases: ['banir'],
+            category: 'moderation',
+            description: 'Bane um usuário do servidor',
+            props: {
+                'memberToBan': {
+                    type: 'member',
+                    text: 'O membro que será banido',
+                    required: true,
+                    position: 0
+                },
+                'reason': {
+                    type: 'text',
+                    minLength: 4,
+                    maxLength: 512,
+                    joinSpace: true,
+                    text: 'A razão do banimento',
+                    required: false,
+                    position: 1
+                }
+            },
+            permissions: {
+                member: ['BAN_MEMBERS'],
+                client: ['BAN_MEMBERS']
+            }
+        })
+
         this.embedder = new BanEmbedder()
         this.manager = new BanManager()
     }
 
     /** @param {SetupParams} */
-    async setup({ client, message, props, texts }) {
-        const { memberToBan, reason = texts('default-reason') } = props
+    async exec({ client, message }) {
+
+        /** @type {Props} */
+        const { memberToBan, reason = this.texts('default-reason') } = this.props
 
         const { guild } = message
 
-        if (memberToBan.user.equals(message.author)) return this.quote(texts('is-yourself'))
+        if (memberToBan.user.equals(message.author)) return message.reply(this.texts('is-yourself'))
 
-        if (memberToBan.user.equals(client.user)) return this.quote(texts('is-myself'))
+        if (memberToBan.user.equals(client.user)) return message.reply(this.texts('is-myself'))
 
         const isHigherThanMe = compareRolePosition(memberToBan.guild.me, memberToBan)
-        if (!isHigherThanMe) return this.quote(texts('higher-than-me'))
+        if (!isHigherThanMe) return message.reply(this.texts('higher-than-me'))
 
         const isHigherThanAuthor = compareRolePosition(message.member, memberToBan)
-        if (!isHigherThanAuthor) return this.quote(texts('higher-than-you'))
+        if (!isHigherThanAuthor) return message.reply(this.texts('higher-than-you'))
 
-        if (!memberToBan.bannable) return this.quote(texts('unbannable'))
+        if (!memberToBan.bannable) return message.reply(this.texts('unbannable'))
 
         const shouldInform = await this.manager.inform({ guild })
 
@@ -80,19 +83,19 @@ class BanCommand extends BaseCommand {
 
         const guildName = guild.name
 
-        const informed = shouldInform ? await memberToBan.send(texts('you-got-banned', { reason, guildName })).then(_ => true).catch(_ => false) : false
+        const informed = shouldInform ? await memberToBan.send(this.texts('you-got-banned', { reason, guildName })).then(_ => true).catch(_ => false) : false
 
         const banned = await memberToBan.ban({ reason }).then(_ => true).catch(console.log)
 
         const userTag = memberToBan.user.tag
 
-        if (banned) return message.channel.send(texts('success-ban', {
+        if (banned) return message.channel.send(this.texts('success-ban', {
             reason, userTag,
             informed: informed ? ':thumbsup:' : ':thumbsdown:'
         }))
 
-        return message.channel.send(texts('unsuccess-ban', { userTag }))
+        return message.channel.send(this.texts('unsuccess-ban', { userTag }))
     }
 }
 
-module.exports = { ...config, run: BanCommand }
+module.exports = new BanCommand()
